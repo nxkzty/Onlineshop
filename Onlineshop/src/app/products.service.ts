@@ -17,4 +17,15 @@ export class ProductsService {
       throw error;
     }
   }
+
+  public async sortResults(): Promise<any> {
+    try {
+      const response = await fetch('https://fakestoreapi.com/products?sort=desc')
+      const products = await response.json();
+      return products;
+    } catch (error) {
+      console.error('Error fetching products',  error);
+      throw error;
+    }
+  }
 }

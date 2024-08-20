@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {ProductsService} from "../products.service";
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -14,6 +15,16 @@ export class HomeComponent implements OnInit {
   products: any[] = [];
 
   constructor(private productService: ProductsService) {
+  }
+
+
+
+  async onSort() {
+    try {
+      this.products = await this.productService.sortResults();
+    }catch (error) {
+      console.error('Error loading products:', error)
+    }
   }
 
   async ngOnInit() {

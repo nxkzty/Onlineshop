@@ -1,7 +1,14 @@
 <div *ngFor="let product of products" class="product">
-    <h2>{{ product.title }}</h2>
-    <p>{{ product.description }}</p>
+    <h2>
+      <a [title]="product.title + ' details'">
+      {{ product.title }}
+      </a>
+    </h2>
     <p><strong>Price:</strong> ${{ product.price }}</p>
 </div>
 
+
+<button class="primary" type="button" (click)="onSort()">
+Sortieren
+</button>
 
